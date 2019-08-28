@@ -51,3 +51,52 @@ Requiere un objeto JSON como:
   "course": "5cb4b8ce75f954a0585f7be3"
 }
 ```
+
+## Directivas
+
+```graphql
+query getPeopleData($monitor: Boolean!, $avatar: Boolean!){
+  getPeople{
+    _id
+    name
+    ... on Monitor @include(if: $monitor) {
+      phone 
+    }
+    ... on Student @skip(if: $avatar) {
+      avatar
+      email
+    }
+  }
+}
+```
+Requiere un objeto JSON como:
+
+```json
+{
+  "monitor": true,
+  "avatar": true
+}
+```
+
+## Unions
+
+```graphql
+{
+  searchData(keyword: "1"){
+    __typename
+    ... on Course {
+      title
+      description
+      level
+    }
+    ...on Student {
+      name
+      avatar
+    }
+    ... on Monitor {
+      name
+      phone
+    }
+  }
+}
+```

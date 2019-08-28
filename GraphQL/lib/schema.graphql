@@ -10,10 +10,12 @@ type Course {
   title: String!
   teacher: String
   description: String!
-  topic: String
+  topic: String @deprecated
   people: [Student]
   level: Level
 }
+
+union GlobalSearch = Course | Student | Monitor
 
 interface Person {
   _id: ID!
@@ -44,6 +46,8 @@ type Query {
   getPeople: [Person]
   "Devuelve un estudiante"
   getPerson(id: ID!): Person
+  "Ejecuta una busqueda global"
+  searchData(keyword: String!): [GlobalSearch]
 }
 
 input CourseInput {
