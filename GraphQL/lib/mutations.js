@@ -50,7 +50,7 @@ module.exports = {
 
     return msg
   },
-  registerStudent: async (root, { input }) => {
+  registerPerson: async (root, { input }) => {
     let db
     let student
     try {
@@ -62,7 +62,7 @@ module.exports = {
     }
     return input
   },
-  editStudent: async (root, { _id,  input }) => {
+  editPerson: async (root, { _id,  input }) => {
     let db
     let student
     try {
@@ -75,7 +75,7 @@ module.exports = {
 
     return student
   },
-  removeStudent: async (root, { _id }) => {
+  removePerson: async (root, { _id }) => {
     let db
     let status
     let msg
