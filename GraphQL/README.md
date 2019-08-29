@@ -56,7 +56,7 @@ Requiere un objeto JSON como:
 
 ```graphql
 query getPeopleData($monitor: Boolean!, $avatar: Boolean!){
-  getPeople{
+  getPeople {
     _id
     name
     ... on Monitor @include(if: $monitor) {

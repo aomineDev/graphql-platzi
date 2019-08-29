@@ -84,13 +84,13 @@ type Mutation {
   "Crea un curso"
   createCourse(input: CourseInput!): Course
   "Edita un curso"
-  editCourse(_id: ID!, input: CourseEditInput): Course
+  editCourse(_id: ID!, input: CourseEditInput!): Course
   "Elimina un curso"
   removeCourse(_id: ID!): String
   "Registra un persona"
   registerPerson(input: PersonInput!): Person
   "Edita un persona"
-  editPerson(_id: ID!, input: PersonEditInput): Person
+  editPerson(_id: ID!, input: PersonEditInput!): Person
   "Elimina un persona"
   removePerson(_id: ID!): String
   "Agrega una persona a un curso"
